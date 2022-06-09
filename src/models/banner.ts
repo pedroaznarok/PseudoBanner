@@ -1,11 +1,18 @@
 
-export default class Plato{
+export default class Banner {
 
     id:number = 0;
-    urlImagenBanner:string = "";
+    urlImageBanner:string = "";
     textCaption:string = "";
-    texCaption:string = "";
     descripcionImagen:string = "";
     ordenSlider:Number = 0;
 
+}
+
+export type BannerParams = {
+    id:number;
+    urlImageBanner:string;
+    textCaption:string;
+    descripcionImagen:string;
+    ordenSlider:Number;
 }
