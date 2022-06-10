@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import App from "./App";
 import Navigation from "./components/navbar/navigation";
 import DemoBanner from "./components/pages/DemoBanner/demoBanner";
+import TablaBanner from "./components/pages/TablaBanners/tablaBanner";
 
 
 class AppRoutes extends Component {
@@ -15,8 +16,8 @@ class AppRoutes extends Component {
                 <Routes>
                     <Route path="/" element={<App/>} />
                     <Route path="/banner" element={<DemoBanner/>} />
-                   {/*  <Route path="/formulario" element={<FormularioBanner/>} />
-                    <Route path="/tabla" element={<TablaBanner/>} />  */}
+                    {/* <Route path="/formulario" element={<FormularioBanner/>} />*/}
+                    <Route path="/tabla" element={<TablaBanner/>} />  
                 </Routes>
             </Container>
             </>
