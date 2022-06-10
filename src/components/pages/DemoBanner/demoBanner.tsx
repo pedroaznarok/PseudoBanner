@@ -4,7 +4,7 @@ import { getBanners } from "../../../controller/FuncionesApi";
 import BannerParams  from '../../../models/banner';
 import Banner from '../../../models/banner';
 
-import './banners.css';
+import './banner.css';
 
 
 function DemoBanner() {
@@ -28,9 +28,11 @@ function DemoBanner() {
   
     
     const ItemBanner = (args : BannerParams) => {
-console.log(args.urlImageBanner)
+
     return (
       <>
+       <Carousel>
+               <Carousel.Item>
         <Card>
           <Card.ImgOverlay>
             <Card.Title>{args.ordenSlider.toString()}/4</Card.Title>
@@ -41,17 +43,43 @@ console.log(args.urlImageBanner)
               <Card.Text>{args.descripcionImagen}</Card.Text>
               </Card.Body>
             </Card>
+            </Carousel.Item>
+              </Carousel>
       </> 
 )
 }
+function Entry() {
+  return (
+    <div>
+                {/* <Entry key={ban.id} id={ban.id} urlImageBanner={ban.urlImageBanner} textCaption={ban.textCaption} ordenSlider={ban.ordenSlider} descripcionImagen={banner.descripcionImagen} /> */}
+
+      <h1 className="reviews-h1">Reviews</h1>
+      <Carousel>
+        {banners.map(ban => (
+          <Carousel.Item key={ban.id}>
+            <img
+              className="testimonialImages d-block w-50"
+              src={ban.urlImageBanner}
+              alt={ban.textCaption}
+            />
+            <Carousel.Caption>
+              <h3>{ban.textCaption}</h3>
+              <p>{ban.descripcionImagen}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
+  );
+}
+
+
 
         if(banners){
           return (
           <>
               <h1>Banners</h1>
-               {banners.map((banner:Banner) => 
-                <ItemBanner key={banner.id} id={banner.id} urlImageBanner={banner.urlImageBanner} textCaption={banner.textCaption} ordenSlider={banner.ordenSlider} descripcionImagen={banner.descripcionImagen} />
-               )}
+              <Entry></Entry>
           </>
           )
       }else{
